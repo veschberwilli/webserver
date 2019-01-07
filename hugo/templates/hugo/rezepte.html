@@ -29,7 +29,7 @@
         <tr>
             <td>{{ rezept.name }}</td>
             <td>{{ rezept.category }}</td>
-            <td>{{ rezept.img_path }}</td>
+            <td><img src="/static/{{ rezept.img_path }}.jpg" height="100" width="100" alt="kein Bild"></td>
             <td><a href="/hugo/{{ rezept.id }}/rezept_sicht"> Zum Rezept </a></td>
         </tr>
         {% endfor %}
@@ -38,5 +38,6 @@
         <p>Keine Rezepte verfügbar.</p>
     {% endif %}
 
+    <p><a href="/admin/hugo/rezept/add/"> Neues Rezept hinzufügen </a></p>
 </body>
 </html>
