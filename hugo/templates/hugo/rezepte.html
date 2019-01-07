@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html PUBLIC '-//WAPFORUM//DTD XHTML Mobile 1.0//EN'
+'http://www.wapforum.org/DTD/xhtml-mobile10.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Rezepte</title>
+
+</head>
+<body>
+    <br>
+    <ul>
+        <li sytle="float:right"><a class="" href="/hugo">Hugo</a></li>
+        <li sytle="float:right"><a class="" href="/hugo/rezepte">Rezepte</a></li>
+    </ul>
+
+    <h1>Rezepte:</h1>
+
+    {% if rezepte_list %}
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Kategorie</th>
+            <th>img_path</th>
+            <th>Link</th>
+        </tr>
+        {% for rezept in rezepte_list %}
+        <tr>
+            <td>{{ rezept.name }}</td>
+            <td>{{ rezept.category }}</td>
+            <td>{{ rezept.img_path }}</td>
+            <td><a href="/hugo/{{ rezept.id }}/rezept_sicht"> Zum Rezept </a></td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% else %}
+        <p>Keine Rezepte verfügbar.</p>
+    {% endif %}
+
+</body>
+</html>
