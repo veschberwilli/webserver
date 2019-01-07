@@ -17,7 +17,7 @@
 
     <h1>{{ name }}</h1>
 
-    <p>Zutaten:</p>
+    <strong><p>Zutaten:</p></strong>
     {% if zutaten_list %}
         <ol>
             {% for zutat in zutaten_list %}
@@ -28,7 +28,7 @@
         <p>Keine Zutaten gefunden.</p>
     {% endif %}
 
-    <p>Zubereitung:</p>
+    <strong><p>Zubereitung:</p></strong>
     {% if zubereitung_list %}
         <ol>
             {% for zubereitung in zubereitung_list %}
@@ -39,9 +39,9 @@
         <p>Keine Zubereitung gefunden.</p>
     {% endif %}
 
-    <p>Bild:</p>
+    <strong><p>Bild:</p></strong>
     {% if img_path %}
-        {{ img_path }}
+        <img src="/static/{{ img_path }}.jpg" height="200" width="200">
     {% else %}
         <p>Kein Bild gefunden.</p>
     {% endif %}
