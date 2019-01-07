@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html PUBLIC '-//WAPFORUM//DTD XHTML Mobile 1.0//EN'
+'http://www.wapforum.org/DTD/xhtml-mobile10.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Rezept Sicht</title>
+
+</head>
+<body>
+    <br>
+    <ul>
+        <li sytle="float:right"><a class="" href="/hugo">Hugo</a></li>
+        <li sytle="float:right"><a class="" href="/hugo/rezepte">Rezepte</a></li>
+    </ul>
+
+    <h1>{{ name }}</h1>
+
+    <p>Zutaten:</p>
+    {% if zutaten_list %}
+        <ol>
+            {% for zutat in zutaten_list %}
+            <li>{{ zutat }}</li><br>
+            {% endfor %}
+        </ol>
+    {% else %}
+        <p>Keine Zutaten gefunden.</p>
+    {% endif %}
+
+    <p>Zubereitung:</p>
+    {% if zubereitung_list %}
+        <ol>
+            {% for zubereitung in zubereitung_list %}
+            <li>{{ zubereitung }}</li><br>
+            {% endfor %}
+        </ol>
+    {% else %}
+        <p>Keine Zubereitung gefunden.</p>
+    {% endif %}
+
+    <p>Bild:</p>
+    {% if img_path %}
+        {{ img_path }}
+    {% else %}
+        <p>Kein Bild gefunden.</p>
+    {% endif %}
+
+</body>
+</html>
