@@ -33,15 +33,25 @@ def rezept(request):
     template = loader.get_template('hugo/rezepte.html')
 
     # +++++++++++++++++++++++++++++++
-    # get Rezepte
+    # get Rezepte and Kategorie
     #
     rezepte_list = Rezept.objects.all()
+
+    category_list = []
+    for rezept in rezepte_list:
+        category_list.append(rezept.category)
+
+    category_list = list(set(category_list))
+
+    print('+++++')
+    print(category_list)
 
     # +++++++++++++++++++++++++++++++
     # fill context
     #
     context = {
         'rezepte_list': rezepte_list,
+        'category_list': category_list,
     }
 
     # ++++++++++++++++++++++++++++++++
@@ -121,3 +131,75 @@ def rezept_sicht(request, rezept_id):
     #template_name = 'hugo/rezept_sicht.html'
 
     #return render(request, template_name, context)
+
+
+def geburtstage(request):
+
+    # +++++++++++++++++++++++++++++++
+    # load template
+    #
+    template = loader.get_template('hugo/geburtstage.html')
+
+    # +++++++++++++++++++++++++++++++
+    # fill context
+    #
+    context = {}
+
+    # ++++++++++++++++++++++++++++++++
+    # return http response
+    #
+    return HttpResponse(template.render(context, request))
+
+
+def adressen(request):
+
+    # +++++++++++++++++++++++++++++++
+    # load template
+    #
+    template = loader.get_template('hugo/adressen.html')
+
+    # +++++++++++++++++++++++++++++++
+    # fill context
+    #
+    context = {}
+
+    # ++++++++++++++++++++++++++++++++
+    # return http response
+    #
+    return HttpResponse(template.render(context, request))
+
+
+def wetter(request):
+
+    # +++++++++++++++++++++++++++++++
+    # load template
+    #
+    template = loader.get_template('hugo/wetter.html')
+
+    # +++++++++++++++++++++++++++++++
+    # fill context
+    #
+    context = {}
+
+    # ++++++++++++++++++++++++++++++++
+    # return http response
+    #
+    return HttpResponse(template.render(context, request))
+
+
+def speed(request):
+
+    # +++++++++++++++++++++++++++++++
+    # load template
+    #
+    template = loader.get_template('hugo/speed.html')
+
+    # +++++++++++++++++++++++++++++++
+    # fill context
+    #
+    context = {}
+
+    # ++++++++++++++++++++++++++++++++
+    # return http response
+    #
+    return HttpResponse(template.render(context, request))

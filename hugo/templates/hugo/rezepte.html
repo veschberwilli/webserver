@@ -18,22 +18,25 @@
     <h1>Rezepte:</h1>
 
     {% if rezepte_list %}
-    <table>
-        <tr>
-            <th>Name</th>
-            <th>Kategorie</th>
-            <th>img_path</th>
-            <th>Link</th>
-        </tr>
-        {% for rezept in rezepte_list %}
-        <tr>
-            <td>{{ rezept.name }}</td>
-            <td>{{ rezept.category }}</td>
-            <td><img src="/static/{{ rezept.img_path }}.jpg" height="100" width="100" alt="kein Bild"></td>
-            <td><a href="/hugo/{{ rezept.id }}/rezept_sicht"> Zum Rezept </a></td>
-        </tr>
+        {% for category in category_list %}
+            <h2> {{ category }} </h2>
+            <table border="8" cellpadding="12">
+                <tr>
+                    <th>Name</th>
+                    <th>Bild</th>
+                </tr>
+
+                {% for rezept in rezepte_list %}
+                    {% if rezept.category == category %}
+                        <tr>
+                            <td><a href="/hugo/{{ rezept.id }}/rezept_sicht"> {{ rezept.name }} </a></td>
+                            <td><img src="/static/{{ rezept.img_path }}.jpg" height="100" width="100" alt="kein Bild"></td>
+                        </tr>
+                    {% endif %}
+                {% endfor %}
+            </table>
         {% endfor %}
-    </table>
+
     {% else %}
         <p>Keine Rezepte verfügbar.</p>
     {% endif %}
