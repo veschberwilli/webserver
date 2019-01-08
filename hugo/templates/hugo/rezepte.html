@@ -20,17 +20,12 @@
     {% if rezepte_list %}
         {% for category in category_list %}
             <h2> {{ category }} </h2>
-            <table border="8" cellpadding="12">
-                <tr>
-                    <th>Name</th>
-                    <th>Bild</th>
-                </tr>
-
+            <table frame="box" cellpadding="12">
                 {% for rezept in rezepte_list %}
                     {% if rezept.category == category %}
                         <tr>
-                            <td><a href="/hugo/{{ rezept.id }}/rezept_sicht"> {{ rezept.name }} </a></td>
-                            <td><img src="/static/{{ rezept.img_path }}.jpg" height="100" width="100" alt="kein Bild"></td>
+                            <td width="400"><a href="/hugo/{{ rezept.id }}/rezept_sicht"> {{ rezept.name }} </a></td>
+                            <td width="150"><img src="/static/{{ rezept.img_path }}.jpg" height="100" width="100" alt="kein Bild"></td>
                         </tr>
                     {% endif %}
                 {% endfor %}
