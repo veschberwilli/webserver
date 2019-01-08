@@ -16,7 +16,27 @@
 
     <h1>Adressen:</h1>
 
-    <p>kommt noch...</p>
+    <table border="8" cellpadding="12">
+        <tr>
+            <th>Name1</th>
+            <th>Name2</th>
+            <th>Nachname</th>
+            <th>Straße</th>
+            <th>PLZ</th>
+            <th>Ort</th>
+        </tr>
+
+        {% for adresse in adresse_list %}
+            <tr>
+                <th> {{ adresse.name1 }} </th>
+                <th> {{ adresse.name2 }} </th>
+                <th> {{ adresse.nachname }} </th>
+                <th> {{ adresse.strasse }} </th>
+                <th> {{ adresse.plz }} </th>
+                <th> {{ adresse.ort }} </th>
+            </tr>
+        {% endfor %}
+    </table>
 
 
 

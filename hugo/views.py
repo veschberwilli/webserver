@@ -3,7 +3,7 @@ from django.template import loader
 from django.db import connection
 from django.shortcuts import render, get_object_or_404
 
-from .models import Rezept, Zubereitung, Zutaten, Category
+from .models import Rezept, Zubereitung, Zutaten, Category, Geburtstage, Adressen
 
 
 
@@ -42,9 +42,6 @@ def rezept(request):
         category_list.append(rezept.category)
 
     category_list = list(set(category_list))
-
-    print('+++++')
-    print(category_list)
 
     # +++++++++++++++++++++++++++++++
     # fill context
@@ -141,9 +138,17 @@ def geburtstage(request):
     template = loader.get_template('hugo/geburtstage.html')
 
     # +++++++++++++++++++++++++++++++
+    # get Geburtstage
+    #
+    #geburtstag_list = Geburtstage.objects.all()
+    geburtstag_list = Geburtstage.objects.order_by('datum')
+
+    # +++++++++++++++++++++++++++++++
     # fill context
     #
-    context = {}
+    context = {
+        'geburtstag_list': geburtstag_list,
+    }
 
     # ++++++++++++++++++++++++++++++++
     # return http response
@@ -159,9 +164,16 @@ def adressen(request):
     template = loader.get_template('hugo/adressen.html')
 
     # +++++++++++++++++++++++++++++++
+    # get Adressen
+    #
+    adresse_list = Adressen.objects.all()
+
+    # +++++++++++++++++++++++++++++++
     # fill context
     #
-    context = {}
+    context = {
+        'adresse_list': adresse_list,
+    }
 
     # ++++++++++++++++++++++++++++++++
     # return http response
