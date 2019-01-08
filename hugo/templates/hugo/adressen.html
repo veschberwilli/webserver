@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html PUBLIC '-//WAPFORUM//DTD XHTML Mobile 1.0//EN'
+'http://www.wapforum.org/DTD/xhtml-mobile10.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Adressen</title>
+
+</head>
+<body>
+    <br>
+    <ul>
+        <li sytle="float:right"><a class="" href="/hugo">Hugo</a></li>
+    </ul>
+
+    <h1>Adressen:</h1>
+
+    <table border="8" cellpadding="12">
+        <tr>
+            <th>Name1</th>
+            <th>Name2</th>
+            <th>Nachname</th>
+            <th>Straße</th>
+            <th>PLZ</th>
+            <th>Ort</th>
+        </tr>
+
+        {% for adresse in adresse_list %}
+            <tr>
+                <th> {{ adresse.name1 }} </th>
+                <th> {{ adresse.name2 }} </th>
+                <th> {{ adresse.nachname }} </th>
+                <th> {{ adresse.strasse }} </th>
+                <th> {{ adresse.plz }} </th>
+                <th> {{ adresse.ort }} </th>
+            </tr>
+        {% endfor %}
+    </table>
+
+
+
+</body>
+</html>

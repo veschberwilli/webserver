@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Rezept, Category, Zutaten, Zubereitung
+from .models import Rezept, Category, Zutaten, Zubereitung, Adressen, Geburtstage
 
 # +++++++++++++++++++++++++++++++
 # Category
@@ -34,3 +34,13 @@ class RezeptAdmin(admin.ModelAdmin):
     search_fields = ['name', 'category']
 
 admin.site.register(Rezept, RezeptAdmin)
+
+# +++++++++++++++++++++++++++++++
+# Adressen
+#
+admin.site.register(Adressen)
+
+# +++++++++++++++++++++++++++++++
+# Geburtstage
+#
+admin.site.register(Geburtstage)

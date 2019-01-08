@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html PUBLIC '-//WAPFORUM//DTD XHTML Mobile 1.0//EN'
+'http://www.wapforum.org/DTD/xhtml-mobile10.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Geburtstage</title>
+
+</head>
+<body>
+    <br>
+    <ul>
+        <li sytle="float:right"><a class="" href="/hugo">Hugo</a></li>
+    </ul>
+
+    <h1>Geburtstage:</h1>
+
+    <h2>(nach Datum sortiert)</h2>
+
+    <table border="8" cellpadding="12">
+        <tr>
+            <th>Vorname</th>
+            <th>Nachname</th>
+            <th>Datum</th>
+            <th>Alter</th>
+        </tr>
+
+        {% for geburtstag in geburtstag_list %}
+            <tr>
+                <th> {{ geburtstag.vorname }} </th>
+                <th> {{ geburtstag.nachname }} </th>
+                <th> {{ geburtstag.datum }} </th>
+                <th> n/a </th>
+            </tr>
+        {% endfor %}
+    </table>
+
+</body>
+</html>

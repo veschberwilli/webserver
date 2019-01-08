@@ -3,7 +3,7 @@ from django.template import loader
 from django.db import connection
 from django.shortcuts import render, get_object_or_404
 
-from .models import Rezept, Zubereitung, Zutaten, Category
+from .models import Rezept, Zubereitung, Zutaten, Category, Geburtstage, Adressen
 
 
 
@@ -33,15 +33,22 @@ def rezept(request):
     template = loader.get_template('hugo/rezepte.html')
 
     # +++++++++++++++++++++++++++++++
-    # get Rezepte
+    # get Rezepte and Kategorie
     #
     rezepte_list = Rezept.objects.all()
+
+    category_list = []
+    for rezept in rezepte_list:
+        category_list.append(rezept.category)
+
+    category_list = list(set(category_list))
 
     # +++++++++++++++++++++++++++++++
     # fill context
     #
     context = {
         'rezepte_list': rezepte_list,
+        'category_list': category_list,
     }
 
     # ++++++++++++++++++++++++++++++++
@@ -121,3 +128,90 @@ def rezept_sicht(request, rezept_id):
     #template_name = 'hugo/rezept_sicht.html'
 
     #return render(request, template_name, context)
+
+
+def geburtstage(request):
+
+    # +++++++++++++++++++++++++++++++
+    # load template
+    #
+    template = loader.get_template('hugo/geburtstage.html')
+
+    # +++++++++++++++++++++++++++++++
+    # get Geburtstage
+    #
+    #geburtstag_list = Geburtstage.objects.all()
+    geburtstag_list = Geburtstage.objects.order_by('datum')
+
+    # +++++++++++++++++++++++++++++++
+    # fill context
+    #
+    context = {
+        'geburtstag_list': geburtstag_list,
+    }
+
+    # ++++++++++++++++++++++++++++++++
+    # return http response
+    #
+    return HttpResponse(template.render(context, request))
+
+
+def adressen(request):
+
+    # +++++++++++++++++++++++++++++++
+    # load template
+    #
+    template = loader.get_template('hugo/adressen.html')
+
+    # +++++++++++++++++++++++++++++++
+    # get Adressen
+    #
+    adresse_list = Adressen.objects.all()
+
+    # +++++++++++++++++++++++++++++++
+    # fill context
+    #
+    context = {
+        'adresse_list': adresse_list,
+    }
+
+    # ++++++++++++++++++++++++++++++++
+    # return http response
+    #
+    return HttpResponse(template.render(context, request))
+
+
+def wetter(request):
+
+    # +++++++++++++++++++++++++++++++
+    # load template
+    #
+    template = loader.get_template('hugo/wetter.html')
+
+    # +++++++++++++++++++++++++++++++
+    # fill context
+    #
+    context = {}
+
+    # ++++++++++++++++++++++++++++++++
+    # return http response
+    #
+    return HttpResponse(template.render(context, request))
+
+
+def speed(request):
+
+    # +++++++++++++++++++++++++++++++
+    # load template
+    #
+    template = loader.get_template('hugo/speed.html')
+
+    # +++++++++++++++++++++++++++++++
+    # fill context
+    #
+    context = {}
+
+    # ++++++++++++++++++++++++++++++++
+    # return http response
+    #
+    return HttpResponse(template.render(context, request))
