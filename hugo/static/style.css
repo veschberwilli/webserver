@@ -1,0 +1,22 @@
+/*TABLES ON VIEWS*/
+
+/* NAVIGATION BAR */
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.requirement_menu {
+    background-color: #4CAF50;
+}
+
+.requirement_menu:hover{
+    background-color: #3e8e41;
+}
+
