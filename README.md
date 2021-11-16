@@ -28,3 +28,5 @@ admin page (login required):
 http://localhost:8001/admin
 ```
 
+## License
+[MIT](./LICENSE)
