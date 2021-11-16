@@ -5,7 +5,7 @@ This is a python Django based webserver to manage data like recipes, adresses, c
 
 Reference to the Django Manual [link](https://www.djangoproject.com/)
 
-The main page looks like this:
+The main page looks like this: \
 ![main page](./img/main_menu.png)
 
 ## Preconditions
